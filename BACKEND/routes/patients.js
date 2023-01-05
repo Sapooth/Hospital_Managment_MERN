@@ -30,7 +30,15 @@ router.route("/add").post((req,res)=>{
 })
 
 
+router.route("/").get((req,res)=>{
 
+    Patient.find().then((patients)=>{
+        res.json(patients)
+    }).catch((err)=>{
+        console.log
+    })
+
+})
 
 
 module.exports = router;

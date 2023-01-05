@@ -24,7 +24,7 @@ router.route("/add").post((req,res)=>{
     }) 
 
     newPatient.save().then(()=>{
-        res.json("Student Added")
+        res.json("Patient Added")
     }).catch(()=>{
         console.log(err);
     })
@@ -56,7 +56,7 @@ router.route("/update/:id").put(async (req, res) => {
     }
     const update = await Patient.findByIdAndUpdate(userId,updatePatient)
     .then(()=>{
-        res.status(200).send({status:"User update", user: update})
+        res.status(200).send({status:"User updated"})
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status: "Error with updating data", error: err.message});
@@ -78,8 +78,8 @@ router.route("/delete/:id").delete(async (req,res) => {
 router.route("/get/:id").get(async(req,res)=>{
     let userId = req.params.id;
     const user = await Patient.findById(userId)
-    .then(()=>{
-        res.status(200).send({status:"User fetched",user: user})
+    .then((patient)=>{
+        res.status(200).send({status:"User fetched",patient})
     }).catch(()=>{
         console.log(err.message);
         res.status(500).send({status:"Error with get user", error: err.message});

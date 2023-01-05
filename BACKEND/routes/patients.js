@@ -27,8 +27,18 @@ router.route("/add").post((req,res)=>{
     }).catch(()=>{
         console.log(err);
     })
+})
 
+
+router.route("/").get((req,res)=>{
+
+    Patient.find().then((patients)=>{
+        res.json(patients)
+    }).catch((err)=>{
+        console.log(err)
+    })
 
 })
+
 
 module.exports = router;

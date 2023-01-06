@@ -1,3 +1,4 @@
+//create variable
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -5,7 +6,7 @@ const cors  = require("cors");
 const dotenv   = require("dotenv");
 const app = express();
 require("dotenv").config();  
-
+//create variable for available port
 const PORT = process.env.PORT || 8070;
 
 app.use(cors());
@@ -25,7 +26,11 @@ connection.once("open", () => {
     console.log("Mongodb Connection success!");
 })
 
-// new comment
+const doctorRouter = require("./routes/doctor.js");
+
+
+
+app.use("/doctor",doctorRouter);
 
 app.listen(PORT,() => {
   console.log('Server is up and running on port number: ${PORT}')

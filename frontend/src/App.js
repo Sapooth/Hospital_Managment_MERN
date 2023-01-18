@@ -5,11 +5,10 @@ import CounterFunction from './components/CounterFunction';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-      <CounterClass/>
-      <CounterFunction/>
-    </div>
+   <div>
+
+    
+   </div>
   );
 }
 
